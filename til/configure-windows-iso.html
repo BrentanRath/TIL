@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TIL: Windows Answer Files (unattend.xml)</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <p><a href="../index.html">&larr; back</a></p>
+  <article class="til-content">
+    <h1>Windows Answer Files (unattend.xml)</h1>
+    <p class="meta">2025-02-19 &middot; Windows &middot; windows, iso, configure &middot; <span id="view-count"></span></p>
+    <p>Today I learned that you can configure a Windows ISO file for Windows 10/11 before you even install it using <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11" target="_blank" rel="noopener noreferrer">Answer files (unattend.xml/autounattend.xml)</a>. You can change many things from the users it sets up, to the keyboard and language settings, all the way to running custom PowerShell scripts on startup.</p>
+    <p>My friend pointed this out to me, and as a Linux and MacOS user, this was a surprise for me to see, but a good tool for corporate environments, as well as debloating a new machine. Someone made a <a href="https://schneegans.de/windows/unattend-generator/" target="_blank" rel="noopener noreferrer">generator website</a> that lets you create the autounattend.xml file.</p>
+    <p>Here are the kinds of things you can configure:</p>
+
+    <h2>General Setup &amp; Region</h2>
+    <ul>
+      <li><strong>Import/Presets:</strong> Import existing XML or choose predefined presets.</li>
+      <li><strong>Region and Language:</strong> Display language, keyboard layouts, and home location.</li>
+      <li><strong>Processor Architectures:</strong> x86, amd64, or arm64.</li>
+      <li><strong>Setup Settings:</strong> Bypass TPM/Secure Boot, offline installation, distribution shares, and Narrator.</li>
+      <li><strong>Computer Name:</strong> <a href="https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername" target="_blank" rel="noopener noreferrer">Random, manual, or scripted names.</a></li>
+      <li><strong>Compact OS:</strong> Enable or disable file compression.</li>
+      <li><strong>Time Zone:</strong> Automatic or explicit selection.</li>
+    </ul>
+
+    <h2>Disk &amp; Windows Edition</h2>
+    <ul>
+      <li><strong>Partitioning:</strong> Interactive, automatic (GPT/MBR), or custom Diskpart scripts.</li>
+      <li><strong>Windows RE:</strong> Recovery partition placement or removal.</li>
+      <li><strong>Windows Edition:</strong> Generic keys, manual keys, or BIOS/UEFI firmware keys.</li>
+      <li><strong>Source Image:</strong> Selection by index or name.</li>
+      <li><strong>Windows PE Operation:</strong> Standard setup or custom CMD scripts.</li>
+    </ul>
+
+    <h2>Accounts &amp; Security</h2>
+    <ul>
+      <li><strong>User Accounts:</strong> Local accounts, auto-logon, and password obscuring.</li>
+      <li><strong>Password Policy:</strong> Expiration dates and lockout thresholds.</li>
+      <li><strong>System Tweaks:</strong> Disable Windows Defender, UAC, SmartScreen, and Windows Update.</li>
+      <li><strong>Security Policies:</strong> Windows Defender Application Control (WDAC) and AppLocker.</li>
+    </ul>
+
+    <h2>Interface &amp; Customization</h2>
+    <ul>
+      <li><strong>File Explorer:</strong> Hidden files, file extensions, classic context menu, and "This PC" view.</li>
+      <li><strong>Start Menu &amp; Taskbar:</strong> Search box style, taskbar alignment, widgets, and tray icons.</li>
+      <li><strong>Start/Taskbar Layout:</strong> Custom XML/JSON pins for Windows 10 and 11.</li>
+      <li><strong>Visual Effects:</strong> Performance vs. appearance and custom animation toggles.</li>
+      <li><strong>Desktop &amp; Start Folders:</strong> System icons and folders next to the Power button.</li>
+      <li><strong>Personalization:</strong> Dark/Light themes, accent colors, and custom wallpapers.</li>
+    </ul>
+
+    <h2>System &amp; Software</h2>
+    <ul>
+      <li><strong>Remove Bloatware:</strong> Selection list for removing built-in apps (Camera, OneDrive, Xbox, etc.).</li>
+      <li><strong>System Optimizations:</strong> Fast Startup, Long Paths, RDP, and hibernating settings.</li>
+      <li><strong>Edge Settings:</strong> Disable First Run Experience, Startup Boost, or make it uninstallable.</li>
+      <li><strong>Virtual Machine Support:</strong> Guest tools for VirtualBox, VMware, Proxmox, and Parallels.</li>
+      <li><strong>Wi-Fi Setup:</strong> SSID and password configuration.</li>
+      <li><strong>Custom Scripts:</strong> Run Synchronous (System), Default User (Registry), First Logon, or User Once scripts.</li>
+    </ul>
+
+    <h2>Advanced</h2>
+    <ul>
+      <li><strong>XML Markup:</strong> Manual injection of XML for specific components.</li>
+      <li><strong>Download Settings:</strong> Option to rename the file to notautounattend.xml.</li>
+    </ul>
+
+    <details class="til-collapsible">
+      <summary>Sample autounattend.xml &amp; downloads</summary>
+      <p>Here&rsquo;s the answer file I created. Place <code>autounattend.xml</code> in the root of your USB drive next to the ISO (or inside the ISO&rsquo;s <code>sources</code> folder for some setups). You can copy the full XML below.</p>
+      <pre><code id="autounattend-xml"></code></pre>
+      <p><strong>Downloads:</strong></p>
+      <ul>
+        <li><a href="../assets/downloads/autounattend.xml" download>autounattend.xml</a></li>
+      </ul>
+    </details>
+
+    <h3>References</h3>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11" target="_blank" rel="noopener noreferrer">Answer files (unattend.xml)</a> — Microsoft Learn</li>
+      <li><a href="https://schneegans.de/windows/unattend-generator/" target="_blank" rel="noopener noreferrer">autounattend.xml generator</a> — Web-based answer file builder</li>
+      <li><a href="https://schneegans.de/windows/unattend-generator/samples/" target="_blank" rel="noopener noreferrer">Sample PowerShell startup scripts</a> — Example scripts for autounattend.xml</li>
+      <li><a href="https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername" target="_blank" rel="noopener noreferrer">ComputerName</a> — Microsoft Learn (unattend.xml setting)</li>
+    </ul>
+
+  </article>
+  <div id="site-footer"></div>
+  <script>
+    (function() {
+      var el = document.getElementById('autounattend-xml');
+      if (el) {
+        fetch('../assets/downloads/autounattend.xml')
+          .then(function(r) { return r.text(); })
+          .then(function(txt) { el.textContent = txt; })
+          .catch(function() { el.textContent = 'Failed to load autounattend.xml'; });
+      }
+    })();
+  </script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/view-counter.js"></script>
+</body>
+</html>

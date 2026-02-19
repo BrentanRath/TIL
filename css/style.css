@@ -1,0 +1,377 @@
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+  background: #181818;
+  color: #ccc;
+  margin: 8px;
+}
+
+/* Top navbar */
+.site-navbar {
+  display: flex;
+  gap: 16px;
+  margin: 0 -8px 8px -8px;
+  padding: 4px 8px;
+  background: #1f1f1f;
+  border-bottom: 1px solid #333;
+  font-size: 12px;
+}
+
+.site-navbar a {
+  color: #888;
+}
+
+.site-navbar a:hover {
+  color: #c44;
+  text-decoration: none;
+}
+
+a { color: #c44; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 8px;
+  padding: 6px 8px;
+  background: #222;
+  border: 1px solid #444;
+}
+
+h2 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  margin: 0 0 4px;
+  padding: 4px 8px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+}
+
+/* Board tools table */
+.board-tools {
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 12px;
+  border: 1px solid #333;
+  background: #1f1f1f;
+}
+
+.board-tools td {
+  border: 1px solid #333;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+
+.tools-label {
+  width: 60px;
+  font-weight: bold;
+  color: #888;
+  white-space: nowrap;
+}
+
+.board-tools input {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 2px 4px;
+  background: #111;
+  border: 1px solid #444;
+  color: #ccc;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Tag filter */
+#tag-filter {
+  max-height: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 0;
+}
+
+.tag-btn {
+  display: inline-block;
+  margin: 2px 4px 2px 0;
+  padding: 2px 6px;
+  background: #252525;
+  border: 1px solid #444;
+  color: #999;
+  cursor: pointer;
+}
+
+.tag-btn:hover { border-color: #c44; color: #c44; }
+.tag-btn.active { border-color: #c44; color: #c44; font-weight: bold; }
+
+/* TIL entries */
+.til-section { margin-bottom: 12px; }
+
+.til-card {
+  display: block;
+  margin-bottom: 4px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  color: inherit;
+}
+
+.til-card:hover { border-color: #555; }
+
+.til-card .til-head {
+  display: block;
+  padding: 4px 8px;
+  background: #252525;
+  border-bottom: 1px solid #333;
+  font-size: 11px;
+  color: #666;
+}
+
+.til-card .til-body {
+  display: block;
+  padding: 6px 8px;
+}
+
+.til-card .desc { color: #888; font-size: 11px; }
+.til-card .tags { font-size: 11px; color: #666; }
+
+.section-nav { margin: 12px 0; text-align: center; }
+.section-nav a {
+  padding: 4px 12px;
+  background: #252525;
+  border: 1px solid #444;
+  color: #c44;
+}
+.section-nav a:hover { border-color: #c44; background: #2a2222; text-decoration: none; }
+
+/* TIL content pages */
+.til-content {
+  margin-top: 8px;
+  padding: 8px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  max-width: 640px;
+}
+
+.til-content h1 {
+  font-size: 13px;
+  margin: -8px -8px 8px -8px;
+  padding: 6px 8px;
+  background: #252525;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+
+.til-content .meta { font-size: 11px; color: #888; margin-bottom: 8px; }
+
+.til-content ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.til-content ul li {
+  margin-bottom: 4px;
+  color: #ccc;
+}
+
+.til-content code {
+  background: #111;
+  padding: 1px 3px;
+  border: 1px solid #333;
+  font-size: 11px;
+}
+
+.til-content pre {
+  background: #111;
+  padding: 8px;
+  border: 1px solid #333;
+  overflow-x: auto;
+  margin: 8px 0;
+  font-size: 11px;
+}
+
+.til-content pre code { background: none; border: none; padding: 0; }
+.til-content p > a { color: #c44; }
+
+.til-content .til-collapsible {
+  margin: 12px 0;
+  border: 1px solid #333;
+  background: #252525;
+}
+
+.til-content .til-collapsible summary {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ccc;
+  list-style: none;
+}
+
+.til-content .til-collapsible summary::-webkit-details-marker {
+  display: none;
+}
+
+.til-content .til-collapsible summary::before {
+  content: '▸ ';
+  color: #888;
+}
+
+.til-content .til-collapsible[open] summary::before {
+  content: '▾ ';
+}
+
+.til-content .til-collapsible > *:not(summary) {
+  padding: 0 12px 12px;
+  margin: 0;
+}
+
+.til-content .til-collapsible pre {
+  margin: 8px 0;
+}
+
+body > p:first-of-type a {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  margin-bottom: 8px;
+}
+
+/* Header / footer - user profile, old web style */
+.header-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #333;
+  flex-wrap: wrap;
+}
+
+.site-header {
+  flex: 1 1 320px;
+  min-width: 0;
+  padding: 16px 8px 0;
+  font-size: 11px;
+  color: #666;
+  max-width: 640px;
+}
+
+.featured-til {
+  flex: 0 0 auto;
+  width: 280px;
+  margin-left: auto;
+  padding: 12px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  font-size: 11px;
+}
+
+.featured-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  margin: 0 0 8px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid #333;
+}
+
+.featured-til-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featured-card {
+  display: block;
+  padding: 8px 10px;
+  background: #252525;
+  border: 1px solid #333;
+  color: inherit;
+  text-decoration: none;
+}
+
+.featured-card:hover {
+  border-color: #555;
+}
+
+.featured-card:hover .featured-card-title {
+  color: #c44;
+}
+
+.featured-card-title {
+  display: block;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 4px;
+}
+
+.featured-card-preview {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.site-footer {
+  margin-top: 24px;
+  padding: 16px 8px;
+  border-top: 1px solid #333;
+  font-size: 11px;
+  color: #666;
+  max-width: 640px;
+}
+
+.site-header a,
+.site-footer a { color: #888; }
+.site-header a:hover,
+.site-footer a:hover { color: #c44; }
+
+.footer-avatar {
+  display: block;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 1px solid #333;
+  margin-bottom: 8px;
+}
+
+.footer-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ccc;
+  margin: 0 0 4px;
+}
+
+.footer-bio {
+  margin: 0 0 12px;
+  color: #777;
+  line-height: 1.5;
+  font-size: 11px;
+}
+
+.site-header .footer-section,
+.site-footer .footer-section {
+  margin-bottom: 8px;
+}
+
+.site-header .footer-section:last-child,
+.site-footer .footer-section:last-child {
+  margin-bottom: 0;
+}
+
+.site-header .footer-label,
+.site-footer .footer-label {
+  color: #555;
+  font-weight: bold;
+}
+
+.site-header pre,
+.site-header .fingerprint,
+.site-footer pre,
+.site-footer .fingerprint {
+  font-size: 10px;
+  background: #111;
+  padding: 6px 8px;
+  border: 1px solid #333;
+  overflow-x: auto;
+  margin: 4px 0;
+  color: #777;
+}
