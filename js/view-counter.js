@@ -24,7 +24,7 @@
     const supabase = supabaseLib.createClient(config.url, config.anonKey);
     const sessionKey = SESSION_PREFIX + slug;
     if (sessionStorage.getItem(sessionKey)) {
-      const { data } = await supabase.from('til_views').select('count').eq('slug', slug).single();
+      const { data } = await supabase.from('til_views').select('count').eq('slug', slug).maybeSingle();
       displayCount(el, data ? Number(data.count) : 0);
       return;
     }
