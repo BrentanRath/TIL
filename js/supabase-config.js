@@ -1,4 +1,4 @@
 window.SUPABASE_CONFIG = {
-  url: process.env.SUPABASE_URL,
-  anonKey: process.env.SUPABASE_ANONKEY
+  url: 'https://xeoowziybflsnsmvjwmz.supabase.co',
+  anonKey: 'sb_publishable_ayA3YKVmbaGYbAmq4A7hLg_STclfMQk'
 };
