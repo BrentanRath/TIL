@@ -226,6 +226,13 @@ h2 {
   margin: 8px 0;
 }
 
+.til-content .til-meme {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 24px;
+}
+
 body > p:first-of-type a {
   display: inline-block;
   padding: 4px 8px;
