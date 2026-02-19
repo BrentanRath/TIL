@@ -20,7 +20,7 @@
     const searchText = (til.title + ' ' + (til.description || '') + ' ' + (til.category || '') + ' ' + tagStr).toLowerCase();
     const viewCount = views[til.slug] || 0;
     const viewLabel = viewCount ? ' &middot; ' + viewCount + ' view' + (viewCount !== 1 ? 's' : '') : '';
-    return '<a href="til/' + til.slug + '.html" class="til-card" data-tags="' + tagStr + '" data-search="' + searchText.replace(/"/g, '&quot;') + '"><span class="til-head">' + til.date + viewLabel + '</span><span class="til-body"><strong>' + til.title + '</strong>' + (til.description ? '<span class="desc"> &mdash; ' + til.description + '</span>' : '') + '<span class="tags"> ' + tagStr.replace(/,/g, ', ') + '</span></span></a>';
+    return '<a href="til/' + til.slug + '/" class="til-card" data-tags="' + tagStr + '" data-search="' + searchText.replace(/"/g, '&quot;') + '"><span class="til-head">' + til.date + viewLabel + '</span><span class="til-body"><strong>' + til.title + '</strong>' + (til.description ? '<span class="desc"> &mdash; ' + til.description + '</span>' : '') + '<span class="tags"> ' + tagStr.replace(/,/g, ', ') + '</span></span></a>';
   }
 
   function buildHTML(views) {

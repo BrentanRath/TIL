@@ -13,7 +13,7 @@ Add an entry to the `TIL_DATA` array:
   date: '2025-02-11',  // YYYY-MM-DD
   category: 'CategoryName',
   tags: ['tag1', 'tag2'],
-  slug: 'url-friendly-slug',  // becomes til/slug.html
+  slug: 'url-friendly-slug',  // becomes til/slug/
   description: 'Optional short description for the index card'
 }
 ```
@@ -21,48 +21,29 @@ Add an entry to the `TIL_DATA` array:
 **Required:** id, title, date, category, tags, slug  
 **Optional:** description, author (add more as needed)
 
-The view counter is automatic: include `<span id="view-count"></span>` and `view-counter.js` in each TIL page (see template below).
+The view counter is automatic: each TIL page includes `<span id="view-count"></span>` and `view-counter.js` (in the template).
 
 The footer is automatic: include `<div id="site-footer"></div>` and `footer.js`. Edit `js/footer.js` to change your name and email in one place.
 
 The navbar is automatic: include `<div id="site-navbar"></div>` and `navbar.js`.
 
-### 2. Create your TIL page
+### 2. Create your TIL folder
 
-Create `til/your-slug.html`. The page is **fully flexible**—you can:
+1. Create `til/your-slug/`
+2. Copy `docs/til-article-template.html` → `til/your-slug/index.html` (no edits needed)
+3. Create `til/your-slug/content.md` with your Markdown content
 
-- **Minimal**: Just use the shared `style.css` for consistent looks
-- **Custom**: Add your own `<style>` or link other CSS
-- **Plain**: Skip the TIL layout and write raw HTML
-- **Markdown-rendered**: Use a script or preprocessor if you prefer
+**Content format:**
+- Write the body in Markdown (headings, lists, links, code blocks, etc.)
+- Optional: Add YAML frontmatter at the top for `title`, `date`, `category`, `tags` — otherwise these are taken from `til-data.js`
+- Inline HTML is supported: use `<details class="til-collapsible">` for collapsible sections
+- Images: `![alt](path)` or `<img src="path" alt="..." class="til-meme">` for styled images
 
-**Minimum viable structure** (copy & adapt):
+**Paths in Markdown:** Links and images are relative to the HTML page. Since the page is at `til/slug/index.html`, use `../../assets/` for repo-root assets.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>TIL: Your Title</title>
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <div id="site-navbar"></div>
-  <p><a href="../index.html">← back</a></p>
-  <article class="til-content">
-    <h1>Your Title</h1>
-    <p class="meta">DATE · CATEGORY · tag1, tag2 · <span id="view-count"></span></p>
-    <!-- Your content here -->
-  </article>
-  <div id="site-footer"></div>
-  <script src="../js/navbar.js"></script>
-  <script src="../js/footer.js"></script>
-  <script src="../js/supabase-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../js/view-counter.js"></script>
-</body>
-</html>
-```
+### 3. Optional: Custom scripts
+
+If your TIL needs custom JavaScript (e.g. loading external data into a placeholder), add an inline `<script>` at the end of `til/your-slug/index.html`, after the template scripts. The script runs after the page loads; if it targets an element injected by `til-renderer.js` (e.g. `#autounattend-xml`), poll for the element or use a short delay.
 
 ### Flexibility tips
 

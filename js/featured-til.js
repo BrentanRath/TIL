@@ -18,7 +18,7 @@
         const slug = typeof item === 'string' ? item : (item.slug || '');
         const customPreview = typeof item === 'object' ? item.preview : null;
         const til = tilBySlug[slug];
-        const href = 'til/' + slug + '.html';
+        const href = 'til/' + slug + '/';
         const title = til ? til.title : slug;
         const preview = customPreview || (til && til.description) || '';
         const escapedPreview = (preview || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');

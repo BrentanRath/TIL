@@ -2,7 +2,7 @@
   const SESSION_PREFIX = 'til-viewed-';
 
   function getSlugFromPath() {
-    const match = window.location.pathname.match(/\/til\/([^/.]+)\.html?$/);
+    const match = window.location.pathname.match(/\/til\/([^/]+)\/?/);
     return match ? match[1] : null;
   }
 
@@ -47,6 +47,8 @@
   const slug = getSlugFromPath();
   if (slug) {
     const el = document.getElementById('view-count');
-    recordAndShow(slug, el);
+    if (el) {
+      recordAndShow(slug, el);
+    }
   }
 })();

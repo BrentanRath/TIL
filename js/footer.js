@@ -1,8 +1,11 @@
 (function () {
+  var segments = window.location.pathname.split('/').filter(Boolean);
+  var depth = Math.max(0, segments.length - 1);
+  var homeHref = depth > 0 ? '../'.repeat(depth) + 'index.html' : 'index.html';
   var config = {
     name: 'Brentan Rath',
     email: 'brentanrath@gmail.com',
-    homeHref: '../index.html'
+    homeHref: homeHref
   };
 
   var footer = document.getElementById('site-footer');

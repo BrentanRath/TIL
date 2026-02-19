@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TIL</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <div id="site-navbar"></div>
+  <p><a href="../../index.html">&larr; back</a></p>
+  <article class="til-content" id="til-article">
+    <!-- Markdown content rendered here by JS -->
+    <p class="meta-placeholder">Loading...</p>
+  </article>
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../../til-data.js"></script>
+  <script src="../../js/til-renderer.js"></script>
+  <script src="../../js/navbar.js"></script>
+  <script src="../../js/footer.js"></script>
+  <script src="../../js/supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../js/view-counter.js"></script>
+  <script>
+    (function() {
+      var tries = 0;
+      function loadXml() {
+        var el = document.getElementById('autounattend-xml');
+        if (el) {
+          fetch('../../assets/downloads/autounattend.xml')
+            .then(function(r) { return r.text(); })
+            .then(function(txt) { el.textContent = txt; })
+            .catch(function() { el.textContent = 'Failed to load autounattend.xml'; });
+        } else if (tries < 50) {
+          tries++;
+          setTimeout(loadXml, 100);
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadXml);
+      } else {
+        loadXml();
+      }
+    })();
+  </script>
+</body>
+</html>
