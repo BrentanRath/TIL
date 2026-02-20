@@ -243,17 +243,16 @@ body > p:first-of-type a {
 
 /* Header / footer - user profile, old web style */
 .header-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 320px 280px;
   gap: 24px;
-  align-items: flex-start;
+  align-items: start;
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid #333;
-  flex-wrap: wrap;
 }
 
 .site-header {
-  flex: 1 1 320px;
   min-width: 0;
   padding: 16px 8px 0;
   font-size: 11px;
@@ -261,10 +260,171 @@ body > p:first-of-type a {
   max-width: 640px;
 }
 
-.featured-til {
+.careers-wrapper {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.careers-section {
   flex: 0 0 auto;
-  width: 280px;
-  margin-left: auto;
+  width: 240px;
+  padding: 12px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  font-size: 11px;
+}
+
+.careers-category-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.category-btn {
+  font-family: inherit;
+  font-size: 10px;
+  padding: 2px 6px;
+  background: #252525;
+  border: 1px solid #444;
+  color: #999;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-btn:hover {
+  border-color: #c44;
+  color: #c44;
+}
+
+.category-btn.active {
+  border-color: #c44;
+  color: #c44;
+  font-weight: bold;
+}
+
+.careers-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  margin: 0 0 8px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid #333;
+}
+
+.careers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.careers-item {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #252525;
+  line-height: 1.4;
+}
+
+.careers-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.careers-role {
+  font-weight: bold;
+  color: #ccc;
+  display: block;
+}
+
+.careers-company {
+  color: #777;
+  font-size: 11px;
+}
+
+.careers-date {
+  display: block;
+  color: #555;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.careers-item-clickable {
+  cursor: pointer;
+}
+
+.careers-item-clickable:hover .careers-role {
+  color: #c44;
+}
+
+.careers-item-clickable.active .careers-role {
+  color: #c44;
+}
+
+/* Job detail box - aligned with Experience section, below header */
+.job-detail-box {
+  grid-column: 2;
+  max-width: 520px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin-bottom 0.2s ease;
+}
+
+.job-detail-box.visible {
+  max-height: 280px;
+  opacity: 1;
+  margin-bottom: 24px;
+  overflow-y: auto;
+}
+
+.job-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #252525;
+  border-bottom: 1px solid #333;
+}
+
+.job-detail-title {
+  font-weight: bold;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.job-detail-close {
+  background: transparent;
+  border: 1px solid #444;
+  color: #888;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 6px;
+  width: 28px;
+}
+
+.job-detail-close:hover {
+  border-color: #c44;
+  color: #c44;
+}
+
+.job-detail-description {
+  margin: 0;
+  padding: 12px;
+  font-size: 11px;
+  color: #888;
+  line-height: 1.5;
+}
+
+.featured-til {
   padding: 12px;
   background: #1f1f1f;
   border: 1px solid #333;

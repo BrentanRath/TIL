@@ -11,7 +11,8 @@
     <header class="site-header">
       <!-- <img src="./assets/images/profilePicture.jpg" alt="" class="footer-avatar"> -->
       <h3 class="footer-name">Brentan Rath</h3>
-      <p class="footer-bio"></p>
+
+      <p class="footer-bio">Senior Programmer & CEO turned Cybersecurity Skid</p>
       <div class="footer-section">
         <span class="footer-label">contact:</span>
         <a href="mailto:brentanrath@gmail.com">brentanrath@gmail.com</a>
@@ -22,10 +23,22 @@
         <a href="https://github.com/brentanrath">github</a>
       </div>
     </header>
+    <div class="careers-wrapper">
+      <div class="careers-category-btns">
+        <button type="button" class="category-btn active" data-category="work">Work</button>
+        <button type="button" class="category-btn" data-category="personal">Personal</button>
+        <button type="button" class="category-btn" data-category="academic">Academic</button>
+      </div>
+      <section class="careers-section">
+        <h4 class="careers-title">Experience</h4>
+        <ul class="careers-list" id="careers-list"></ul>
+      </section>
+    </div>
     <div class="featured-til">
       <div class="featured-title">Highlights</div>
       <div id="featured-til-list"></div>
     </div>
+    <div id="job-detail-box" class="job-detail-box" aria-live="polite"></div>
   </div>
   <h1>Today I Learned</h1>
   <table class="board-tools" cellspacing="0" cellpadding="4">
@@ -47,6 +60,8 @@
   <script src="js/supabase-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="til-data.js"></script>
+  <script src="careers-data.js"></script>
+  <script src="js/careers.js"></script>
   <script src="js/featured-til.js"></script>
   <script src="js/main.js"></script>
 </body>
